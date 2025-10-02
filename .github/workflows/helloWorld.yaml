@@ -9,3 +9,12 @@ jobs:
         uses: ./.github/actions/echoString
         with:
           message: "This is the string to echo"
+
+  echo_job_2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Echo the string again
+        uses: ./.github/actions/echoString
+        with:
+          message: "This is the string to echo again"
