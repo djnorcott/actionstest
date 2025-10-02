@@ -5,8 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Echo the string
-        uses: ./.github/actions/echoString@538ae48f9422a806257cfafde60884558c9829a4
+        with:
+          ref: 538ae48f9422a806257cfafde60884558c9829a4
+      - name: Echo the string (from old commit)
+        uses: ./.github/actions/echoString
         with:
           message: "This is the string to echo"
 
