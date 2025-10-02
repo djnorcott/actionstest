@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Echo the string
-        uses: ./.github/actions/echoString
+        uses: ./.github/actions/echoString@538ae48f9422a806257cfafde60884558c9829a4
         with:
           message: "This is the string to echo"
 
