@@ -1,0 +1,11 @@
+name: 'Echo String'
+description: 'Echoes a provided string.'
+inputs:
+  message:
+    description: 'The message to echo.'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "${{ inputs.message }}"
+

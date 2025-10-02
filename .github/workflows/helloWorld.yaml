@@ -1,0 +1,11 @@
+on:
+  push:
+jobs:
+  echo_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Echo the string
+        uses: ./.github/actions/echoString
+        with:
+          message: "This is the string to echo"
