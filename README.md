@@ -1,1 +1,1 @@
-[![.github/workflows/helloWorld.yaml](https://github.com/djnorcott/actionstest/actions/workflows/helloWorld.yaml/badge.svg)](https://github.com/djnorcott/actionstest/actions/workflows/helloWorld.yaml)
+[![.github/workflows/helloWorld.yaml](https://github.com/djnorcott/actionstest/actions/workflows/helloWorld.yaml/badge.svg?branch=main)](https://github.com/djnorcott/actionstest/actions/workflows/helloWorld.yaml)
