@@ -7,5 +7,5 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: 'echo "HERE IS THE STRING: ${{ inputs.message }}"'
+    - run: exit 1
       shell: bash
