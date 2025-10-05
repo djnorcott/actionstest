@@ -4,36 +4,34 @@ jobs:
   echo_job:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Check out the repository
       - uses: actions/checkout@v4
+      # Step 2: Echo the contents of the greeting.txt file using GitHub Script
+      - name: Echo contents of greeting.txt using GitHub Script
+        uses: actions/github-script@v7
         with:
-          ref: 538ae48f9422a806257cfafde60884558c9829a4
-      - name: Echo the string (from old commit)
-        uses: ./.github/actions/echoString
-        with:
-          message: "This is the string to echo"
-
-  echo_job_2:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Echo the string again
-        uses: ./.github/actions/echoString
-        with:
-          message: "This is the string to echo again"
+          script: |
+            const fs = require('fs');
+            const content = fs.readFileSync('.github/scripts/greeting.txt', 'utf8');
+            console.log(content);
 
   phpunit_tests:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Check out the repository
       - uses: actions/checkout@v4
+      # Step 2: Set up PHP 8.3
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+      # Step 3: Install Composer dependencies if composer.json exists
       - name: Install Composer dependencies (if composer.json exists)
         run: |
           if [ -f composer.json ]; then
             composer install --no-interaction --prefer-dist --optimize-autoloader;
           fi
+      # Step 4: Run PHPUnit tests
       - name: Run PHPUnit
         run: |
           if [ -f ./vendor/bin/phpunit ]; then
